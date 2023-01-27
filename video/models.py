@@ -22,6 +22,8 @@ class Category(BasicModel):
 
 class Video(models.Model):
     title = models.CharField(max_length=255, unique=True)
+    # TODO add slugs in migration
+    slug = models.SlugField(max_length=225, unique=True)
     #year
     video = models.FileField(upload_to="video/%y")
     miniature = models.ImageField(null=True)

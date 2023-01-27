@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
+    Movies
 {% endblock %}
 
 {% block content %}
 
-    <h1 class="text-center">Hello, world!</h1>
+    <h1 class="text-center">Our movies</h1>
     <div class="container">
         {% for x in video %}
             <h3 class="text-center"> {{ x.title }}</h3>
@@ -18,17 +19,28 @@
     </div>
 <div class="container">
   <ul class="list-group">
-    <li class="list-group-item">
-      <div class="card">
-        <img class="card-img-top" src="path/to/image1.png" alt="Card image">
-        <div class="card-body">
-          <h5 class="card-title">Card Title</h5>
-          <p class="card-text">Card description</p>
-          <a href="#" class="btn btn-primary">Learn more</a>
-        </div>
-      </div>
-    </li>
+{#    <li class="list-group-item">#}
+{#      <div class="card">#}
+{#        <img class="card-img-top" src="path/to/image1.png" alt="Card image">#}
+{#        <div class="card-body">#}
+{#          <h5 class="card-title">Card Title</h5>#}
+{#          <p class="card-text">Card description</p>#}
+{#          <a href="#" class="btn btn-primary">Learn more</a>#}
+{#        </div>#}
+{#      </div>#}
+{#    </li>#}
+        {% for obj in video %}
+            <h3 class="text-center"> {{ obj.title }}</h3>
+            <a href="{% url 'video-detail' slug=obj.slug %}"></a>
+{#            <video class="embed-responsive " controls="controls">#}
+{##}
+{#                <source src="{{ x.video }}" type="video/mp4">#}
+{#            </video>#}
+{##}
+{#            <video class="jw-video jw-reset" tabindex="-1" disableremoteplayback="" webkit-playsinline="" playsinline="" src="{{ x.video.url }}" style="object-fit: fill;"></video>#}
+        {% endfor %}
   </ul>
+
 </div>
 
 {% endblock %}

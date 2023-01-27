@@ -1,7 +1,7 @@
 from django.utils import timezone
 
 from django.shortcuts import render
-from django.views.generic import ListView, DeleteView
+from django.views.generic import ListView, DetailView
 from .models import Video
 
 
@@ -17,3 +17,8 @@ class VideoList(ListView):
         context = super().get_context_data(**kwargs)
         context['now'] = timezone.now()
         return context
+
+
+class VideoDetail(DetailView):
+    model = Video
+    template_name = "video"
