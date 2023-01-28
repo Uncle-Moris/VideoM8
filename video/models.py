@@ -17,21 +17,22 @@ class BasicModel(models.Model):
 class Category(BasicModel):
 
     class Meta:
-        ordering = ['name']
+         ordering = ['name']
 
 
 class Video(models.Model):
     title = models.CharField(max_length=255, unique=True)
-    # TODO add slugs in migration
     slug = models.SlugField(max_length=225, unique=True)
-    #year
-    video = models.FileField(upload_to="video/%y")
-    miniature = models.ImageField(null=True)
+    premiere = models.DateField()
+    video = models.FileField(upload_to="video/", null=False)
+    miniature = models.ImageField(upload_to="miniatures/", null=True)
     rating = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=5)
-    #+ _rt
+
     #rating_imdb = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=5)
-    description = models.TextField(max_length=1000, null=True)
-    categories = models.ManyToManyField(Category)
+    #rating_imdb = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=5)
+
+    description = models.TextField(max_length=2000, null=True)
+    categories = models.ManyToManyField(Category, blank=True, null=True)
 
     def __str__(self):
         return self.title
