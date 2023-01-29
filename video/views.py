@@ -2,7 +2,7 @@ from django.utils import timezone
 
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import Video
+from .models.models import Video
 
 
 def index(request):
@@ -21,4 +21,5 @@ class VideoList(ListView):
 
 class VideoDetail(DetailView):
     model = Video
-    template_name = "video"
+    template_name = "video/video_details.html"
+    context_object_name = "video"
