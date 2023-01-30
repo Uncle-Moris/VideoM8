@@ -14,7 +14,7 @@ class Director(BasicModel):
     pass
 
 
-class Video(BasicModel):
+class Movie(BasicModel):
     premiere = models.DateField()
     video = models.FileField(upload_to="video/", null=False)
     miniature = models.ImageField(upload_to="miniatures/", null=True)

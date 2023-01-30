@@ -2,16 +2,16 @@ from django.utils import timezone
 
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models.models import Video
+from .models.models import Movie
 
 
 def index(request):
-    video = Video.objects.all()
+    video = Movie.objects.all()
     return render(request, "video/index.html", {"video": video})
 
 
 class VideoList(ListView):
-    model = Video
+    model = Movie
     context_object_name = 'video'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -20,6 +20,6 @@ class VideoList(ListView):
 
 
 class VideoDetail(DetailView):
-    model = Video
+    model = Movie
     template_name = "video/video_details.html"
     context_object_name = "video"
