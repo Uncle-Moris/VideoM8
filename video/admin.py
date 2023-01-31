@@ -8,7 +8,13 @@ class BasicAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name', )}
 
 
+class MovieAdmin(BasicAdmin):
+    list_filter = ('director', )
+    search_fields = ('director__name', 'name')
+    filter_horizontal = ['actors', 'categories']
+
+
 admin.site.register(Category, BasicAdmin)
 admin.site.register(Actor, BasicAdmin)
 admin.site.register(Director, BasicAdmin)
-admin.site.register(Movie, BasicAdmin)
+admin.site.register(Movie, MovieAdmin)
