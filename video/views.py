@@ -2,7 +2,7 @@ from django.utils import timezone
 
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models.models import Movie
+from .models.models import Movie, Category, Actor, Director
 
 
 def index(request):
@@ -13,13 +13,35 @@ def index(request):
 class VideoList(ListView):
     model = Movie
     context_object_name = 'video'
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
 
 
 class VideoDetail(DetailView):
     model = Movie
     template_name = "video/video_details.html"
     context_object_name = "video"
+
+
+class CategoriesList(ListView):
+    model = Category
+    template_name = "video/categories_list.html"
+    context_object_name = "categories"
+
+
+class CategoriesDetail(DetailView):
+    pass
+
+
+class ActorsList(ListView):
+    pass
+
+
+class ActorsDetail(DetailView):
+    pass
+
+
+class DirectorsList(ListView):
+    pass
+
+
+class DirectorsDetails(DetailView):
+    pass
