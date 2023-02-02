@@ -10,5 +10,5 @@ one-stop-shop for all your movie and series needs.
 
 **Frontend:** HTML, Bootstrap
 **Backend:** Django, Django Rest Framework
-**SQL:** PostgreSQL
+**Databases:** PostgreSQL
 

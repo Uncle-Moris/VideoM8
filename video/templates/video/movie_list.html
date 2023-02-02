@@ -15,7 +15,7 @@
                 <img class="card-img-top" src="{{ obj.miniature.url }}" alt="Card image cap">
 
                 <div class="card-body">
-<p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>
+                <p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>
                     <a href="{% url 'video-detail' slug=obj.slug %}" class="btn btn-primary">Watch Now</a>
                 </div>
             </div>
