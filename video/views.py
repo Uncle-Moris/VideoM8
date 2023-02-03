@@ -1,13 +1,7 @@
 from django.utils import timezone
-
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models.models import Movie, Category, Actor, Director
-
-
-def index(request):
-    video = Movie.objects.all()
-    return render(request, "video/index.html", {"video": video})
 
 
 class VideoList(ListView):
@@ -17,31 +11,36 @@ class VideoList(ListView):
 
 class VideoDetail(DetailView):
     model = Movie
-    template_name = "video/video_details.html"
+    template_name = "video/details/video_details.html"
     context_object_name = "video"
 
 
 class CategoriesList(ListView):
     model = Category
-    template_name = "video/categories_list.html"
+    template_name = "video/lists/categories_list.html"
     context_object_name = "categories"
 
 
 class CategoriesDetail(DetailView):
-    pass
+    model = Category
+    template_name = ""
 
 
 class ActorsList(ListView):
-    pass
+    model = Actor
+    template_name = "video/lists/actors_list.html"
 
 
 class ActorsDetail(DetailView):
-    pass
+    model = Actor
+    template_name = ""
 
 
 class DirectorsList(ListView):
-    pass
+    model = Director
+    template_name = "video/lists/directors_list.html"
 
 
 class DirectorsDetails(DetailView):
-    pass
+    model = Director
+    template_name = ""
