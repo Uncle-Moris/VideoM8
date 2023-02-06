@@ -7,7 +7,7 @@ from .models.models import Movie, Category, Actor, Director
 class VideoList(ListView):
     model = Movie
     context_object_name = 'video'
-
+    template_name = "video/lists/movie_list.html"
 
 class VideoDetail(DetailView):
     model = Movie

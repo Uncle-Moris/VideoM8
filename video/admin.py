@@ -5,8 +5,8 @@ from .models.models import Category, Actor, Director, Movie
 class BasicAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_display = ['name']
-    prepopulated_fields = {'slug': ('name', )}
-
+    readonly_fields = ('slug', )
+#    prepopulated_fields = {'slug': ('name', )}
 
 class MovieAdmin(BasicAdmin):
     list_filter = ('director', )
