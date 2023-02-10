@@ -9,6 +9,6 @@ one-stop-shop for all your movie and series needs.
 ## Tech Stack
 
 **Frontend:** HTML, Bootstrap
-**Backend:** Django, Django Rest Framework
+**Backend:** Django
 **Databases:** PostgreSQL
 
