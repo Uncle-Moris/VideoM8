@@ -9,6 +9,7 @@ class VideoList(ListView):
     context_object_name = 'video'
     template_name = "video/lists/movie_list.html"
 
+
 class VideoDetail(DetailView):
     model = Movie
     template_name = "video/details/video_details.html"

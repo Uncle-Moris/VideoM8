@@ -8,16 +8,17 @@
     <h1 class="text-center">Categories</h1>
     <div class="container">
           <ul class="list-group">
-                {% for obj in categories %}
+                {% for obj in objects %}
 
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ obj.miniature.url }}" alt="Card image cap">
-
-                        <div class="card-body">
-                            <p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>
-                            <a href="{% url 'video-detail' slug=obj.slug %}" class="btn btn-primary">Watch Now</a>
-                        </div>
-                    </div>
+                    obj.name
+{#                    <div class="card" style="width: 18rem;">#}
+{#                        <img class="card-img-top" src="{{ obj.miniature.url }}" alt="Card image cap">#}
+{##}
+{#                        <div class="card-body">#}
+{#                            <p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>#}
+{#                            <a href="{% url 'video-detail' slug=obj.slug %}" class="btn btn-primary">Watch Now</a>#}
+{#                        </div>#}
+{#                    </div>#}
                 {% endfor %}
           </ul>
     </div>
