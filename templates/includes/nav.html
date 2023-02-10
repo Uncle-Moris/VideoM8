@@ -15,17 +15,17 @@
                 Categories
               </a>
               <ul class="dropdown-menu">
-                  {% for obj in categories %}
-                  <li><a class="dropdown-item" href="#">Horror</a></li>
-                  {%  endfor %}
+
                 <li><a class="dropdown-item" href="{% url 'video-list' %}">Action</a></li>
                 <li><a class="dropdown-item" href="#">Horror</a></li>
                 <li><a class="dropdown-item" href="#">Si-Fi</a></li>
                 <li><a class="dropdown-item" href="#">Comedy</a></li>
               <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="{% url "categories-list" %}">All Categories</a></li>
+                <li><a class="dropdown-item" href="#">All categories</a></li>
               </ul>
             </li>
+
+
           </ul>
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
