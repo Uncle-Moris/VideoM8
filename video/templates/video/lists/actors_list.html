@@ -5,9 +5,14 @@
 {% endblock %}
 
 {% block content %}
-                <ul>
-                {% for obj in objects %}
-                    <li> obj </li>
+    <h1 class="text-center mt-4">Actors</h1>
+    <div class="container">
+          <ul class="list-group list-group-flush">
+                {% for actor in actors %}
+
+                    <a href="{% url 'video-list-actors' actor=actor.name %}" class="list-group-item list-group-item-action">{{ actor.name| capfirst}}</a>
+
                 {% endfor %}
-                </ul>
+          </ul>
+    </div>
 {% endblock %}

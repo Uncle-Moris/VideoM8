@@ -5,22 +5,31 @@
 {% endblock %}
 
 {% block content %}
-
-    <h1 class="text-center">Our movies</h1>
-<div class="container">
-  <ul class="list-group">
-        {% for obj in video %}
-
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ obj.miniature.url }}" alt="Card image cap">
-
-                <div class="card-body">
-                <p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>
-                    <a href="{% url 'video-detail' slug=obj.slug %}" class="btn btn-primary">Watch Now</a>
+    <div class="container">
+        <h1 class="text-center p-2 mt-2">Our movies</h1>
+        <form method="get" class="form py-4">
+            <input type="text" name="q" value="{{ request.GET.q }}" class="form-control mr-sm-2">
+        </form>
+        <div class="d-flex row p-1 pb-4 justify-content-around text-center">
+            {% for v in video %}
+                <div class="card mt-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="{{ v.miniature.url }}" class="img-fluid rounded-start" style="height: 280px ; width: 180px" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body h-100">
+                            <h5 class="card-title">{{ v.name|upper }} - {{ v.premiere|date:"Y" }}</h5>
+                            <p class="card-text">{{ v.description }}</p>
+                            <p class="card-text"><small class="text-muted">Directed by {{ v.director.name }}</small></p>
+                            <p class="card-text"><small class="text-muted">Categories : {% for c in v.categories.all %}{{ c.name|upper }} {% endfor %}</small></p>
+                            <p class="card-text"><small class="text-muted">Actors : {% for a in v.actors.all %}{{ a.name }}
+                                <br>  {% endfor %}</small></p>
+                            <a href="{% url 'video-detail' slug=v.slug %}" class="btn btn-primary mb-1">Watch Now</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        {% endfor %}
-  </ul>
-</div>
-
+            {% endfor %}
+        </div>
 {% endblock %}

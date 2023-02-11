@@ -1,26 +1,14 @@
 {% extends 'base.html' %}
-
 {% block title %}
     Categories
 {% endblock %}
-
 {% block content %}
-    <h1 class="text-center">Categories</h1>
+    <h1 class="text-center mt-4">Categories</h1>
     <div class="container">
-          <ul class="list-group">
-                {% for obj in objects %}
-
-                    obj.name
-{#                    <div class="card" style="width: 18rem;">#}
-{#                        <img class="card-img-top" src="{{ obj.miniature.url }}" alt="Card image cap">#}
-{##}
-{#                        <div class="card-body">#}
-{#                            <p class="card-title">{{ obj.name|upper }} - {{ obj.premiere|date:"Y" }}</p>#}
-{#                            <a href="{% url 'video-detail' slug=obj.slug %}" class="btn btn-primary">Watch Now</a>#}
-{#                        </div>#}
-{#                    </div>#}
+          <ul class="list-group list-group-flush">
+                {% for c in categories %}
+                    <a href="{% url 'video-list-categories' category=c.name %}" class="list-group-item list-group-item-action">{{ c.name| capfirst}}</a>
                 {% endfor %}
           </ul>
     </div>
-
 {% endblock %}

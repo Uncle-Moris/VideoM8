@@ -5,11 +5,12 @@
 {% endblock %}
 
 {% block content %}
+
+
+
+    <div class="d-flex row p-1 pb-4 justify-content-around text-center">
     <div class="container">
     <h2>{{ video.name|upper }} {{ video.premiere|date:"Y" }}</h2>
-
-
-    <div class="d-flex align-items-center">
   <video width="50%" controls>
     <source src="{{ video.video.url }}" type="video/mp4">
     Your browser does not support the video tag.
