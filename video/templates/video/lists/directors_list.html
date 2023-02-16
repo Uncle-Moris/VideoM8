@@ -9,9 +9,7 @@
     <div class="container">
           <ul class="list-group list-group-flush">
                 {% for d in directors %}
-
                     <a href="{% url 'video-list-directors' director=d.name %}" class="list-group-item list-group-item-action">{{ d.name| capfirst}}</a>
-
                 {% endfor %}
           </ul>
     </div>

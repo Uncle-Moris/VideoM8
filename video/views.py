@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView
 from .models.models import Movie, Category, Actor, Director
 from django.db.models import Q
 
+
 class VideoList(ListView):
     model = Movie
     context_object_name = 'video'

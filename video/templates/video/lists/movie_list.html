@@ -23,8 +23,7 @@
                             <p class="card-text">{{ v.description }}</p>
                             <p class="card-text"><small class="text-muted">Directed by {{ v.director.name }}</small></p>
                             <p class="card-text"><small class="text-muted">Categories : {% for c in v.categories.all %}{{ c.name|upper }} {% endfor %}</small></p>
-                            <p class="card-text"><small class="text-muted">Actors : {% for a in v.actors.all %}{{ a.name }}
-                                <br>  {% endfor %}</small></p>
+                            <p class="card-text"><small class="text-muted">Actors : {% for a in v.actors.all %}{{ a.name }}<br>{% endfor %}</small></p>
                             <a href="{% url 'video-detail' slug=v.slug %}" class="btn btn-primary mb-1">Watch Now</a>
                         </div>
                     </div>
