@@ -31,7 +31,7 @@ class Movie(BasicModel):
     description = models.TextField(max_length=2000, null=True)
     categories = models.ManyToManyField(Category, blank=True, null=True)
     actors = models.ManyToManyField(Actor)
-    director = models.ForeignKey(Director, on_delete=models.CASCADE)
+    director = models.ForeignKey(Director, on_delete=models.PROTECT)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name + '-' + str(self.premiere.year))

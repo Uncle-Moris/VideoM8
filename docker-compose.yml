@@ -2,9 +2,8 @@ version: '3.9'
 services:
   postgres:
       image: postgres:15
-
       environment:
-        POSTGRES_DB: hexocean_db
+        POSTGRES_DB: video_m8
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: mysecretpassword
       ports:
@@ -16,5 +15,5 @@ services:
       - .:/code
     ports:
       - "8000:8000"
-#    depends_on:
-#      - postgres
+    depends_on:
+      - postgres

@@ -12,12 +12,12 @@
         </form>
         <div class="d-flex row p-1 pb-4 justify-content-around text-center">
             {% for v in video %}
-                <div class="card mt-3" style="max-width: 540px;">
+                <div class="card mt-3 col-9" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{ v.miniature.url }}" class="img-fluid rounded-start" style="height: 280px ; width: 180px" alt="...">
+                    <div class="p-2  col-6">
+                        <img src="{{ v.miniature.url }}" class="" style="height: 280px ; width: 180px" alt="...">
                     </div>
-                    <div class="col-md-8">
+                    <div class="col-6">
                         <div class="card-body h-100">
                             <h5 class="card-title">{{ v.name|upper }} - {{ v.premiere|date:"Y" }}</h5>
                             <p class="card-text">{{ v.description }}</p>

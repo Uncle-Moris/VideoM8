@@ -7,9 +7,7 @@
 {% block content %}
 
 
-
 <div class="d-flex row p-5 pb-4 justify-content-around text-center">
-{#      <div class="row align-items-start">#}
         <div class="col">
             <h2>{{ video.name|upper }} {{ video.premiere|date:"Y" }}</h2>
           <video  height="75%" controls class="border border-light border-4 border-bottom-0 rounded" >
@@ -17,26 +15,36 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        <div class="col border border-3 border-warning rounded">
+
+        <div class="container">
           <h3>Description</h3>
-            <p> {{ video.description }}</p>
-            <p>Actors</p>
-            <p>{%  for a in video.actors.all  %}
-            {{ a.name }}<br>
-            {% endfor %}</p>
-        <p>Categories</p>
+            <div class="row">
+                <div class="col-6 border border-warning">
+                    <p> {{ video.description }}
+                        <b><p>rating: {{ video.rating}}</p></b>
+                    </p>
+                </div>
+                <div class="col-3 border border-warning">
+                    <p>Actors</p>
+                    <p>{%  for a in video.actors.all  %}
+                    {{ a.name }}<br>
+                    {% endfor %}</p>
+                </div>
+                <div class="col-3 border border-warning">
+                    <p>Categories</p>
         <p>{%  for ca in video.categories.all  %}
         {{ ca.name }}<br>
         {% endfor %}</p>
+                </div>
+            </div>
 
-            <p>rating: {{ video.rating}}</p>
+
+
+
+
+
         </div>
+
       </div>
-
-
-
-{#</div>#}
-
-
 
 {% endblock %}
