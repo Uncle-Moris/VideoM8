@@ -16,9 +16,13 @@ class Director(BasicModel):
     pass
 
 
+def user_directory_path(instance, filename):
+    return f'video/{filename}'
+
+
 class Movie(BasicModel):
     premiere = models.DateField()
-    video = models.FileField(upload_to="video/", null=False)
+    video = models.FileField(upload_to=user_directory_path, null=False)
     miniature = models.ImageField(upload_to="miniatures/", null=True)
     rating = models.DecimalField(max_digits=10,
                                  decimal_places=2,

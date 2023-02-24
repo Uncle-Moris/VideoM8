@@ -1,5 +1,6 @@
 {% load static %}
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+<div class="bg-info">
+    <nav class="container navbar navbar-expand-lg bg-info">
       <div class="container-fluid">
         <a class="navbar-brand" href="{% url "video-list" %}">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,10 +17,10 @@
               </a>
               <ul class="dropdown-menu">
 
-                <li><a class="dropdown-item" href="{% url 'video-list' %}">Action</a></li>
-                <li><a class="dropdown-item" href="#">Horror</a></li>
-                <li><a class="dropdown-item" href="#">Si-Fi</a></li>
-                <li><a class="dropdown-item" href="#">Comedy</a></li>
+                <li><a class="dropdown-item" href="{% url 'video-list-categories' category="action" %}">Action</a></li>
+                <li><a class="dropdown-item" href="{% url 'video-list-categories' category="horror" %}">Horror</a></li>
+                <li><a class="dropdown-item" href="{% url 'video-list-categories' category="si-fi" %}">Si-Fi</a></li>
+                <li><a class="dropdown-item" href="{% url 'video-list-categories' category="comedy" %}">Comedy</a></li>
               <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="{% url "categories-list" %}">All categories</a></li>
               </ul>
@@ -43,3 +44,4 @@
         </div>
       </div>
     </nav>
+    </div>
