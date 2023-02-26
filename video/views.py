@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models.models import Movie, Category, Actor, Director
 from django.db.models import Q
+from .forms import MovieSearchForm
 
 
 class VideoList(ListView):
@@ -10,6 +11,9 @@ class VideoList(ListView):
     context_object_name = 'video'
     template_name = "video/lists/movie_list.html"
 
+    form = MovieSearchForm(
+
+    )
     def get_queryset(self):
         category = self.kwargs.get('category')
         actor = self.kwargs.get('actor')
