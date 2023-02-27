@@ -10,36 +10,27 @@ class VideoList(ListView):
     model = Movie
     context_object_name = 'video'
     template_name = "video/lists/movie_list.html"
+    form = MovieSearchForm()
 
-    form = MovieSearchForm(
-
-    )
     def get_queryset(self):
         category = self.kwargs.get('category')
         actor = self.kwargs.get('actor')
         director = self.kwargs.get('director')
-
         queryset = super().get_queryset()
         search_query = self.request.GET.get('q')
         if search_query:
             queryset = queryset.filter(
                 Q(name__icontains=search_query) |
-
                 Q(actors__name__icontains=search_query) |
-
                 Q(director__name__icontains=search_query) |
                 Q(categories__name__icontains=search_query)
             )
-
         if category:
             queryset = queryset.filter(categories__name__icontains=category)
-
         if actor:
             queryset = queryset.filter(actors__name__icontains=actor)
-
         if director:
             queryset = queryset.filter(director__name__icontains=director)
-
         return queryset
 
 
