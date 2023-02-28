@@ -3,6 +3,7 @@ from django import forms
 from .models.models import Movie
 
 
+
 class MovieSearchForm(Form):
     movie = forms.CharField(
         label="Movie",
