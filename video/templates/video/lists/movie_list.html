@@ -9,6 +9,7 @@
         <h1 class="text-center p-2 mt-2">Our movies <i class="bi bi-robot"></i></h1>
         <form method="get" class="form py-4">
             <input type="text" name="q" value="{{ request.GET.q }}" class="form-control mr-sm-2">
+            {{ search_form }}
         </form>
         <div class="d-flex row p-1 pb-4 justify-content-around text-center">
             {% for v in video %}

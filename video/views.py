@@ -12,6 +12,11 @@ class VideoList(ListView):
     template_name = "video/lists/movie_list.html"
     form = MovieSearchForm()
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['search_form'] = MovieSearchForm()
+        return context
+
     def get_queryset(self):
         category = self.kwargs.get('category')
         actor = self.kwargs.get('actor')
