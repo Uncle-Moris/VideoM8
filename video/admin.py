@@ -6,7 +6,6 @@ class BasicAdmin(admin.ModelAdmin):
     search_fields = ['name']
     list_display = ['name']
     readonly_fields = ('slug', )
-    #prepopulated_fields = {'slug': ('name', )}
 
 
 class MovieAdmin(BasicAdmin):
