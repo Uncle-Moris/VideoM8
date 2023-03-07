@@ -19,7 +19,8 @@ class CategoryFactory(DjangoModelFactory):
         model = Category
 
     name = fake.name()
-
+    created_at = fake
+    updated_at = fake
 
 class ActorFactory(DjangoModelFactory):
     class Meta:
