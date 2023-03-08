@@ -7,7 +7,6 @@ from video.models.models import (
     Actor,
     Director
 )
-
 from faker import Faker
 
 
