@@ -3,26 +3,16 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from .models.models import Movie, Category, Actor, Director
 from django.db.models import Q
-from .forms import MovieSearchForm
 
 
 class VideoList(ListView):
     model = Movie
     context_object_name = 'video'
     template_name = "video/lists/movie_list.html"
-    form = MovieSearchForm()
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data()
-        context['search_form'] = MovieSearchForm()
-        return context
 
     def get_queryset(self):
-        category = self.kwargs.get('category')
-        actor = self.kwargs.get('actor')
-        director = self.kwargs.get('director')
+        search_query = self.request.GET.get('query')
         queryset = super().get_queryset()
-        search_query = self.request.GET.get('q')
         if search_query:
             queryset = queryset.filter(
                 Q(name__icontains=search_query) |
@@ -30,12 +20,6 @@ class VideoList(ListView):
                 Q(director__name__icontains=search_query) |
                 Q(categories__name__icontains=search_query)
             )
-        if category:
-            queryset = queryset.filter(categories__name__icontains=category)
-        if actor:
-            queryset = queryset.filter(actors__name__icontains=actor)
-        if director:
-            queryset = queryset.filter(director__name__icontains=director)
         return queryset
 
 
