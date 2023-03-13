@@ -35,6 +35,7 @@ class CategoriesList(ListView):
     context_object_name = "categories"
 
 
+
 # class CategoriesDetail(DetailView):
 #     model = Category
 #     template_name = ""

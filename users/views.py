@@ -7,46 +7,42 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic import TemplateView
 
-def register_user(request):
-    if request.method == "POST":
-        pass
 
+class RegistrationView(CreateView):
+    form_class = UserCreationForm
+    template_name = 'users/user_registration.html'
+    success_url = reverse_lazy('video-list')
 
-
-
-# Login
-def login_user(request):
-    if request.method == "POST":
-        form = AuthenticationForm(request, request.POST)
-        if form.is_valid():
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                messages.info(request, f"You are now logged in as {username}.")
-                return redirect('users:success')
-            else:
-                messages.error(request, "Invalid username or password.")
-
-
-    form = AuthenticationForm()
-    return render(request, 'users/user_login.html', {'form': form})
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        user = form.save()
+        login(self.request, user)
+        return response
 
 
 class LoginView(FormView):
-    form_class = AuthenticationForm()
+    form_class = AuthenticationForm
     template_name = 'users/user_login.html'
     success_url = reverse_lazy("users:success")
 
-
-
+    def form_valid(self, form):
+        request = self.request
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.info(request, f"You are now logged in as {username}.")
+            return super().form_valid(form)
+        else:
+            messages.error(request, "Invalid username or password.")
+            return self.form_invalid(form)
 
 
 def logout_user(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    return redirect('users:success')
+    return redirect('video-list')
 
 
 class SuccessView(TemplateView):
