@@ -23,6 +23,8 @@ class VideoList(ListView):
         return queryset
 
 
+
+
 class VideoDetail(DetailView):
     model = Movie
     template_name = "video/details/video_details.html"

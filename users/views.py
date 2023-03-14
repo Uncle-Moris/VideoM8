@@ -6,10 +6,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.views.generic.edit import CreateView, FormView
 from django.views.generic import TemplateView
-
+from users.forms import UserRegistrationForm
 
 class RegistrationView(CreateView):
-    form_class = UserCreationForm
+    form_class = UserRegistrationForm
     template_name = 'users/user_registration.html'
     success_url = reverse_lazy('video-list')
 
