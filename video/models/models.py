@@ -44,3 +44,6 @@ class Movie(BasicModel):
     def __str__(self):
         return f"{self.name} - {self.premiere.year}"
 
+
+class Video(models.Model):
+    pass
