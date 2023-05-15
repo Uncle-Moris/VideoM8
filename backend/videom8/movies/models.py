@@ -35,6 +35,8 @@ class TblMovies(models.Model):
     id_alternative_genres = models.IntegerField(blank=True, null=True)
     id_tags = models.IntegerField(blank=True, null=True)
 
+
+
     class Meta:
         managed = False
         db_table = 'tbl_movies'
