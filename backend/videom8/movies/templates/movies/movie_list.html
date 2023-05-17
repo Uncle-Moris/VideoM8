@@ -1,0 +1,17 @@
+{# movie list template with search by title #}
+{% extends 'base.html' %}
+{% block title %}Movie List{% endblock %}
+{% block content %}
+    <h1>Movie List</h1>
+    <form action="" method="get">
+        <input type="text" name="title" value="{{ request.GET.title }}">
+        <input type="submit" value="Search">
+    </form>
+    <ul>
+        {% for movie in movies %}
+
+            <a href="{% url 'movie_detail' movie.movie_id %}">
+                <li>{{ movie.main_title }}</li>
+        {% endfor %}
+    <ul>
+{% endblock %}

@@ -1,0 +1,22 @@
+{# movie details template base on Tbl #}
+{% extends 'base.html' %}
+{% block title %}{{ movie.title }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <p>{{ movie.main_title }}</p>
+            {# video element with 'link_to_the_movie' using bootstrap classes  #}
+            <div class="col-md-8">
+                <video width="100%" height="100%" controls>
+                    <source src="{{ movie.link_to_the_movie }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+            <p></p>
+
+        </div>
+    </div>
+
+
+{% endblock %}
